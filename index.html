@@ -1,10 +1,117 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en'> 
+
 <head>
-  <meta charset='UTF-8'>
-  <title></title>
+    <meta charset='UTF-8'>
+    <title>Top Gun</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+        crossorigin="anonymous"></script>
+
+    <style>
+        html {
+            font-family: 'Oxygen', sans-serif;
+        }
+        body {
+            margin: 0px;
+        }
+        .main {
+            background: #7b9dd4;
+        }
+        .main div {
+            display: none;
+        }
+        .main .toggle,
+        .main .brand {
+            display: inline-block;
+        }
+        .main .link {
+            display: block;
+            text-align: center;
+            padding: 1em;
+            text-decoration: none;
+            background: #7b9dd4;
+            color: white;
+        }
+        .main .link:hover,
+        .main .link:active {
+            color: #7b9dd4;
+            background: white;
+        }
+        .main .brand {
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+        .main a {
+            text-decoration: none;
+        }
+        .main .toggle {
+            padding: 1em;
+            color: black;
+        }
+        @media (min-width: 48em) {
+            .main {
+                display: flex;
+            }
+            .main .left,
+            .main .right {
+                display: flex;
+                flex: 1;
+            }
+            .main .link {
+                width: auto;
+            }
+            .main .right {
+                justify-content: flex-end;
+            }
+            .main .toggle {
+                display: none;
+            }
+        }
+        @media (min-width: 48em) {
+            .main div {
+                display: flex;
+            }
+        }
+        @media (max-width: 48em) {
+            .main.active .toggle {
+                background: #7b9dd4;
+                color: white;
+            }
+            .main .brand {
+                text-align: left;
+            }
+            .main.active div {
+                display: block;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Hi Flexbox</h1>
+    <div class="main">
+        <a href="#" class="toggle" id="mainHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand">Maverick</a>
+        <div class="left">
+            <a href="#" class="link">Goose</a>
+            <a href="#" class="link">Ice Man</a>
+        </div>
+        <div class="right">
+            <a href="#" class="link">Jester</a>
+        </div>
+    </div>
 </body>
+
+<script>
+    const mainHamburger = document.querySelector('#mainHamburger');
+    mainHamburger.addEventListener('click', (e) => {
+        mainHamburger.parentElement.classList.toggle('active');
+    })
+</script>
+
 </html>
